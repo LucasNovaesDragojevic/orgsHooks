@@ -1,9 +1,15 @@
 import React from 'react'
-import { SafeAreaView } from 'react-native'
+import { SafeAreaView, StyleSheet } from 'react-native'
 import Home from './src/screens/home'
 
 export default function App() {
-  return <SafeAreaView> 
+  return <SafeAreaView style={styles.screen}> 
           <Home/>
         </SafeAreaView>
 }
+
+const styles = StyleSheet.create({
+  screen: {
+    flex: 1
+  }
+})

@@ -1,6 +1,7 @@
 import React from "react"
 import Appbar from './component/Appbar'
+import Producer from './component/Producer'
 
 export default function Home() {
-    return <Appbar/>
+    return <Producer appbar={Appbar}/>
 }
