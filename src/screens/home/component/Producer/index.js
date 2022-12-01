@@ -1,4 +1,4 @@
-import React, { useMemo, useReducer, useState } from 'react'
+import React, { useMemo, useReducer } from 'react'
 import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import Stars from '../../../../components/Stars'
 

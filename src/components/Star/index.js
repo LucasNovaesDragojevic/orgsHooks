@@ -1,5 +1,5 @@
 import React from "react"
-import { TouchableOpacity, StyleSheet, Image } from "react-native"
+import { Image, StyleSheet, TouchableOpacity } from "react-native"
 import star from '../../assets/star.png'
 import starGray from '../../assets/starGray.png'
 
