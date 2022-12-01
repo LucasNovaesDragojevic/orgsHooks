@@ -8,6 +8,7 @@ export default function useProducers() {
 
     useEffect(() => {
         const producersLoaded = loadProducers()
+        producersLoaded.producers.sort((a, b) => a.distance - b.distance)
         setTitle(producersLoaded.title)
         setList(producersLoaded.producers)
     }, [])
