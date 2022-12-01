@@ -15,31 +15,31 @@ export default producer = {
         {
             name: 'Green',
             image: green,
-            distance: `${generateRandomDistance(1, 500)}m`,
+            distance: `${generateRandomDistance(1, 500)}`,
             stars: generateRandomDistance(1, 5)
         },
         {
             name: 'Salad',
             image: salad,
-            distance: `${generateRandomDistance(1, 500)}m`,
+            distance: `${generateRandomDistance(1, 500)}`,
             stars: generateRandomDistance(1, 5)
         },
         {
             name: 'Grow',
             image: grow,
-            distance: `${generateRandomDistance(1, 500)}m`,
+            distance: `${generateRandomDistance(1, 500)}`,
             stars: generateRandomDistance(1, 5)
         },
         {
             name: 'Jenny Jack',
             image: jennyJack,
-            distance: `${generateRandomDistance(1, 500)}m`,
+            distance: `${generateRandomDistance(1, 500)}`,
             stars: generateRandomDistance(1, 5)
         },
         {
             name: 'Potager',
             image: potager,
-            distance: `${generateRandomDistance(1, 500)}m`,
+            distance: `${generateRandomDistance(1, 500)}`,
             stars: generateRandomDistance(1, 5)
         },
     ]
