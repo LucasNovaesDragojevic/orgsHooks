@@ -1,19 +1,11 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import { FlatList, StyleSheet, Text } from 'react-native'
-
-import { loadProducers } from '../../../../services/loadData'
+import useProducers from '../../../../hooks/useProducers'
 import Producer from '../Producer'
 
 export default function Producers({appbar: Appbar}) {
 
-    const [title, setTitle] = useState('')
-    const [list, setList] = useState([])
-    
-    useEffect(() => {
-        const producersLoaded = loadProducers()
-        setTitle(producersLoaded.title)
-        setList(producersLoaded.producers)
-    }, [])
+    const [title, list] = useProducers()
 
     const listHeader = () => {
         return <>
