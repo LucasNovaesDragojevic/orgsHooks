@@ -1,41 +1,68 @@
-import React, { useEffect, useState } from 'react'
-import { FlatList, StyleSheet, Text } from 'react-native'
+import React, { useState } from 'react'
+import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import Stars from '../../../../components/Stars'
 
-import { loadProducers } from '../../../../services/loadData'
+export default function Producer({name, image, distance, stars}) {
 
-export default function Producer({appbar: Appbar}) {
+    const [selected, setSelected] = useState(false)
 
-    const [title, setTitle] = useState('')
-    const [list, setList] = useState([])
-    
-    useEffect(() => {
-        const producersLoaded = loadProducers()
-        setTitle(producersLoaded.title)
-        setList(producersLoaded.producers)
-        console.log(producersLoaded)
-    }, [])
-
-    const listHeader = () => {
-        return <>
-            <Appbar/>
-            <Text style={styles.title}>{title}</Text> 
-        </>
-    }
-    
-    return <FlatList
-                data={list}
-                renderItem={({item: {name}}) => <Text>{name}</Text>}
-                keyExtractor={({name}) => name}
-                ListHeaderComponent={listHeader}/>
+    return <TouchableOpacity 
+                style={styles.card}
+                onPress={() => setSelected(!selected)}>
+            <Image source={image} style={styles.image} accessibilityLabel={name}/>
+            <View style={styles.info}>
+                <View>
+                    <Text style={styles.name}>{name}</Text>
+                    <Stars 
+                        quantity={stars}
+                        updatable={selected}
+                        isBig={selected}/>
+                </View>
+                <Text style={styles.distance}>{distance}</Text>
+            </View>
+        </TouchableOpacity>
 }
 
 const styles = StyleSheet.create({
-    title: {
-        fontSize: 20,
-        fontWeight: 'bold',
-        lineHeight: 32,
+    card: {
+        backgroundColor: '#F6F6F6',
+        marginVertical: 8,
         marginHorizontal: 16,
-        marginTop: 16,
-        color: '#464646'
+        borderRadius: 6,
+        flexDirection: 'row',
+        // Android
+        elevation: 4,
+        // IOS
+        shadowColor: '#000000',
+        shadowOffset: {
+            width: 0,
+            height: 2
+        },
+        shadowOpacity: 0.23,
+        shadowRadius: 2.62
+    },
+    image: {
+        width: 48,
+        height: 48,
+        borderRadius: 6,
+        marginVertical: 16,
+        marginLeft: 16
+    },
+    info: {
+        flex: 1,
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        marginLeft: 8,
+        marginVertical: 16,
+        marginRight: 16
+    },
+    name: {
+        fontSize: 14,
+        fontWeight: 'bold',
+        lineHeight: 22
+    },
+    distance: {
+        fontSize: 12,
+        lineHeight: 19
     }
 })
